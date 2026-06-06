@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Smart Lab | Finance Deck for Trainees</title>
+    <meta
+      name="description"
+      content="Interactive presentation on saving, investing, fund management, and modern portfolio theory."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="hero-slide" data-background-gradient="linear-gradient(135deg, #09111f 0%, #113c4a 55%, #1b6d65 100%)">
+          <div class="slide-shell hero-layout">
+            <div>
+              <p class="kicker">Interactive trainee deck</p>
+              <h1>Money Smart Lab</h1>
+              <p class="lede">
+                How to save money, where to invest for better long-run outcomes,
+                what to check before investing, and how fund management and
+                portfolio construction really work.
+              </p>
+              <div class="pill-row">
+                <span class="pill">FD vs PPF vs VPF vs Gold Bonds</span>
+                <span class="pill">Mutual funds and equity funds</span>
+                <span class="pill">Demat, NSE, BSE, SEBI</span>
+                <span class="pill">Modern portfolio theory</span>
+                <span class="pill">Quant toolkit</span>
+              </div>
+            </div>
+            <div class="hero-panel">
+              <div class="stat-card">
+                <span>Core promise</span>
+                <strong>Presentation-first UI</strong>
+                <p>Navigate like slides. Demo like a website.</p>
+              </div>
+              <div class="stat-card">
+                <span>Live widgets</span>
+                <strong>3 interactive demos</strong>
+                <p>Budgeting, SIP compounding, and MPT allocation explorer.</p>
+              </div>
+              <div class="stat-card">
+                <span>Delivery note</span>
+                <strong>GitHub Pages ready</strong>
+                <p>Static files only, so it can be hosted directly from your repo.</p>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Open with the objective: trainees should learn frameworks, not just
+            memorize product names.
+          </aside>
+        </section>
+
+        <section>
+          <section data-auto-animate data-background-gradient="linear-gradient(135deg, #0d1726 0%, #102739 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Foundation</p>
+              <h2>Saving is the engine. Investing is the amplifier.</h2>
+              <div class="grid-2">
+                <div class="card fragment fade-up">
+                  <h3>Emergency fund</h3>
+                  <p>Usually 3 to 6 months of essential expenses before serious risk-taking.</p>
+                </div>
+                <div class="card fragment fade-up">
+                  <h3>Insurance first</h3>
+                  <p>Health cover and term cover protect the plan from one bad shock.</p>
+                </div>
+                <div class="card fragment fade-up">
+                  <h3>Debt cleanup</h3>
+                  <p>Very expensive debt can destroy more wealth than weak returns ever will.</p>
+                </div>
+                <div class="card fragment fade-up">
+                  <h3>Goal mapping</h3>
+                  <p>Short-term money and long-term money should not live in the same bucket.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section data-auto-animate data-background-gradient="linear-gradient(135deg, #0d1726 0%, #16303d 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Budget demo</p>
+              <h2>How quickly can disciplined saving build stability?</h2>
+              <div class="grid-2 align-start">
+                <div class="card">
+                  <label class="control-block">
+                    <span>Monthly income</span>
+                    <input id="incomeRange" type="range" min="20000" max="200000" step="5000" value="60000" />
+                  </label>
+                  <label class="control-block">
+                    <span>Savings rate</span>
+                    <input id="savingRateRange" type="range" min="5" max="50" step="1" value="25" />
+                  </label>
+                  <div class="metric-grid">
+                    <div class="metric-box">
+                      <span>Income</span>
+                      <strong id="incomeValue">Rs 60,000</strong>
+                    </div>
+                    <div class="metric-box">
+                      <span>Saved / month</span>
+                      <strong id="savingValue">Rs 15,000</strong>
+                    </div>
+                    <div class="metric-box">
+                      <span>Spent / month</span>
+                      <strong id="spendValue">Rs 45,000</strong>
+                    </div>
+                    <div class="metric-box">
+                      <span>Time to 6-month reserve</span>
+                      <strong id="fundMonthsValue">18 months</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="card callout-card">
+                  <h3>Trainer message</h3>
+                  <ul class="tight-list">
+                    <li class="fragment fade-up">Higher return does not rescue a weak saving habit.</li>
+                    <li class="fragment fade-up">Cash-flow control is a financial skill, not a low-level habit.</li>
+                    <li class="fragment fade-up">A stable reserve gives investors the power to stay invested.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-gradient="linear-gradient(135deg, #09111f 0%, #0e2232 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Allocation map</p>
+              <h2>Where should money go?</h2>
+              <div class="grid-3">
+                <div class="card horizon-card">
+                  <span class="micro-tag">0 to 3 years</span>
+                  <h3>Protect capital</h3>
+                  <p>Cash, sweep, FD, and high-quality short-duration options usually fit better.</p>
+                </div>
+                <div class="card horizon-card">
+                  <span class="micro-tag">3 to 5 years</span>
+                  <h3>Balance safety and growth</h3>
+                  <p>PPF, provident-fund style buckets, debt-heavy funds, and selective gold allocation.</p>
+                </div>
+                <div class="card horizon-card">
+                  <span class="micro-tag">5+ years</span>
+                  <h3>Use equity for compounding</h3>
+                  <p>Equity funds, index funds, and carefully researched stocks belong here.</p>
+                </div>
+              </div>
+              <div class="banner-row">
+                <div class="banner fragment fade-up">Short horizon + high-volatility asset = mismatch</div>
+                <div class="banner fragment fade-up">Long horizon + only fixed products = inflation drag</div>
+              </div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #0b1628 0%, #103845 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Checklist</p>
+              <h2>Parameters to check before investing</h2>
+              <div class="grid-4">
+                <div class="card mini-card"><h3>Return</h3><p>Fixed, floating, or market-linked?</p></div>
+                <div class="card mini-card"><h3>Risk</h3><p>Credit, duration, volatility, drawdown, concentration.</p></div>
+                <div class="card mini-card"><h3>Liquidity</h3><p>Can you exit or is there lock-in and penalty?</p></div>
+                <div class="card mini-card"><h3>Tax</h3><p>Look at post-tax return, not headline return.</p></div>
+                <div class="card mini-card"><h3>Costs</h3><p>Expense ratio, charges, spreads, and friction.</p></div>
+                <div class="card mini-card"><h3>Goal fit</h3><p>Emergency, home, retirement, or wealth creation?</p></div>
+                <div class="card mini-card"><h3>Quality</h3><p>Issuer strength, governance, and transparency.</p></div>
+                <div class="card mini-card"><h3>Diversification</h3><p>Is this new risk or just the same risk repackaged?</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #09111f 0%, #11303d 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Product explorer</p>
+              <h2>Compare products in plain language</h2>
+              <div id="productSelector" class="selector-row"></div>
+              <div class="grid-2 align-start">
+                <div id="productDetail" class="card detail-card"></div>
+                <div class="card table-card">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Return nature</th>
+                        <th>Risk</th>
+                        <th>Liquidity</th>
+                      </tr>
+                    </thead>
+                    <tbody id="comparisonTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #0c1520 0%, #1b2838 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Key terms</p>
+              <h2>Definitions trainees usually ask for</h2>
+              <div id="glossaryGrid" class="grid-4"></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-gradient="linear-gradient(135deg, #09111f 0%, #162131 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Market plumbing</p>
+              <h2>How exchanges, demat, and regulation fit together</h2>
+              <div class="flow-board">
+                <div class="flow-node wide-node fragment fade-up"><strong>SEBI</strong><span>Regulator and investor-protection framework</span></div>
+                <div class="flow-arrow">guides</div>
+                <div class="flow-row">
+                  <div class="flow-node fragment fade-up"><strong>NSE / BSE</strong><span>Electronic order matching</span></div>
+                  <div class="flow-node fragment fade-up"><strong>Brokers</strong><span>Route investor orders</span></div>
+                  <div class="flow-node fragment fade-up"><strong>DPs</strong><span>Service your demat account</span></div>
+                </div>
+                <div class="flow-arrow">clear and settle</div>
+                <div class="flow-row">
+                  <div class="flow-node fragment fade-up"><strong>Clearing corp</strong><span>Manages settlement risk</span></div>
+                  <div class="flow-node fragment fade-up"><strong>NSDL / CDSL</strong><span>Electronic securities ownership</span></div>
+                  <div class="flow-node fragment fade-up"><strong>Bank account</strong><span>Money leg of the trade</span></div>
+                </div>
+              </div>
+              <div class="banner">Demat account stores securities. It is not the same as a savings account.</div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #0d1726 0%, #154651 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Fund management</p>
+              <h2>What a fund manager and an AMC actually do</h2>
+              <div class="grid-2">
+                <div class="card">
+                  <div class="process-row">
+                    <span>Sponsor</span>
+                    <span>Trustees</span>
+                    <span>AMC</span>
+                    <span>Fund Manager</span>
+                    <span>Custodian</span>
+                  </div>
+                  <ul class="tight-list">
+                    <li class="fragment fade-up">Set mandate and asset allocation.</li>
+                    <li class="fragment fade-up">Select securities or track an index.</li>
+                    <li class="fragment fade-up">Control liquidity, concentration, and risk.</li>
+                    <li class="fragment fade-up">Report through factsheets, NAV, and disclosures.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h3>Active vs passive</h3>
+                  <p class="fragment fade-up"><strong>Active:</strong> tries to beat the benchmark through selection and timing.</p>
+                  <p class="fragment fade-up"><strong>Passive:</strong> tries to mirror the benchmark at lower cost.</p>
+                  <h3 class="top-gap">Useful metrics</h3>
+                  <p class="fragment fade-up">Expense ratio, rolling returns, tracking error, drawdown, and portfolio concentration.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-gradient="linear-gradient(135deg, #09111f 0%, #113946 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Compounding demo</p>
+              <h2>SIP growth simulator</h2>
+              <div class="grid-2 align-start">
+                <div class="card">
+                  <label class="control-block"><span>Monthly SIP</span><input id="sipAmountRange" type="range" min="1000" max="50000" step="500" value="8000" /></label>
+                  <label class="control-block"><span>Expected annual return</span><input id="sipReturnRange" type="range" min="4" max="16" step="0.5" value="11" /></label>
+                  <label class="control-block"><span>Years invested</span><input id="sipYearsRange" type="range" min="3" max="30" step="1" value="15" /></label>
+                  <div class="metric-grid">
+                    <div class="metric-box"><span>Monthly SIP</span><strong id="sipAmountValue">Rs 8,000</strong></div>
+                    <div class="metric-box"><span>Invested</span><strong id="sipInvestedValue">Rs 14.4L</strong></div>
+                    <div class="metric-box"><span>Estimated corpus</span><strong id="sipCorpusValue">Rs 33.7L</strong></div>
+                    <div class="metric-box"><span>Gain</span><strong id="sipGainValue">Rs 19.3L</strong></div>
+                  </div>
+                </div>
+                <div class="card chart-card">
+                  <svg id="sipChart" viewBox="0 0 640 360" aria-label="SIP growth chart"></svg>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #0b1322 0%, #21424f 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Modern portfolio theory</p>
+              <h2>Diversification changes the risk-return trade-off</h2>
+              <div class="grid-2 align-start">
+                <div class="card">
+                  <label class="control-block"><span>Risk appetite</span><input id="riskToleranceRange" type="range" min="1" max="100" step="1" value="45" /></label>
+                  <div class="metric-grid">
+                    <div class="metric-box"><span>Expected return</span><strong id="mptReturnValue">9.3%</strong></div>
+                    <div class="metric-box"><span>Volatility</span><strong id="mptVolValue">8.4%</strong></div>
+                    <div class="metric-box"><span>Sharpe-style efficiency</span><strong id="mptSharpeValue">0.58</strong></div>
+                    <div class="metric-box"><span>Profile</span><strong id="mptTagValue">Balanced growth</strong></div>
+                  </div>
+                  <div id="allocationBars" class="allocation-bars"></div>
+                </div>
+                <div class="card chart-card">
+                  <svg id="mptChart" viewBox="0 0 640 420" aria-label="Efficient frontier chart"></svg>
+                  <p class="footnote">Illustrative assumptions for teaching, not live forecasts.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #09111f 0%, #203146 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Quant toolkit</p>
+              <h2>Advanced topics worth introducing early</h2>
+              <div id="quantTabs" class="selector-row"></div>
+              <div id="quantGrid" class="grid-3"></div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #0b1322 0%, #1a5a59 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Illustrative portfolios</p>
+              <h2>Same question, different answers for different investors</h2>
+              <div class="grid-3">
+                <div class="card profile-card">
+                  <span class="micro-tag">Conservative</span>
+                  <h3>Capital stability first</h3>
+                  <p>Cash 25% • FD 20% • PPF/debt 35% • Gold 10% • Equity 10%</p>
+                </div>
+                <div class="card profile-card">
+                  <span class="micro-tag">Balanced</span>
+                  <h3>Growth with smoother behavior</h3>
+                  <p>Cash 10% • Debt 25% • Gold 10% • Equity 55%</p>
+                </div>
+                <div class="card profile-card">
+                  <span class="micro-tag">Growth</span>
+                  <h3>Long horizon, strong risk capacity</h3>
+                  <p>Cash 5% • Debt 10% • Gold 10% • Equity 75%</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-gradient="linear-gradient(135deg, #09111f 0%, #173042 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Discussion break</p>
+              <h2>Quick quiz for the room</h2>
+              <div id="quizGrid" class="grid-2"></div>
+            </div>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #081019 0%, #0f2930 100%)">
+            <div class="slide-shell">
+              <p class="kicker">Close</p>
+              <h2>What to repeat before ending</h2>
+              <div class="grid-2">
+                <div class="card">
+                  <ul class="tight-list">
+                    <li>Save first, then invest.</li>
+                    <li>Match the product to the horizon.</li>
+                    <li>Read return, risk, liquidity, tax, and cost together.</li>
+                    <li>Diversification is a design principle, not a buzzword.</li>
+                    <li>Complex products should earn their complexity.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h3>Official references</h3>
+                  <ul class="tight-list small-text">
+                    <li><a href="https://investor.sebi.gov.in/understanding_mf.html" target="_blank" rel="noreferrer">SEBI Investor: Mutual funds</a></li>
+                    <li><a href="https://investor.sebi.gov.in/differencedp.html" target="_blank" rel="noreferrer">SEBI Investor: Depositories and DPs</a></li>
+                    <li><a href="https://www.nsiindia.gov.in/writereaddata/SchemeRules/PublicProvidentFundSchemeRule.pdf" target="_blank" rel="noreferrer">NSI: PPF scheme rules</a></li>
+                    <li><a href="https://www.rbi.org.in/scripts/faqview.aspx/faqview.aspx/scripts/FAQView.aspx?Id=145" target="_blank" rel="noreferrer">RBI: Retail Direct and government securities FAQ</a></li>
+                    <li><a href="https://nsdl.co.in/downloadables/pdf/e-Guide%20for%20demat%20account%20holders%20-%20English.pdf" target="_blank" rel="noreferrer">NSDL: Demat guide</a></li>
+                    <li><a href="https://irdai.gov.in/" target="_blank" rel="noreferrer">IRDAI portal</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
