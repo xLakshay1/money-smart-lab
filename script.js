@@ -27,92 +27,191 @@ const productData = [
   {
     key: "fd",
     label: "FD",
+    role: "Capital parking and near-term goal protection",
     returnType: "Fixed or pre-declared",
     risk: "Low credit risk, but weaker inflation protection",
     liquidity: "Moderate; premature withdrawal may reduce return",
     ideal: "Short-term capital parking and goal protection",
     watch: "Tax on interest and reinvestment risk",
     example: "Example: money needed in 12 to 24 months for a fee payment or travel plan.",
+    horizon: "Usually best for short, date-known goals",
+    taxNote: "Interest is taxed, so compare post-tax return rather than headline rate.",
+    complexity: "Low",
+    presenter: "Use FD when the job is certainty and timing, not maximum growth.",
+    scores: { safety: 5, liquidity: 3, growth: 1, complexity: 1 },
+    compare: [
+      ["Why people use it", "Useful when principal stability matters more than outperforming inflation."],
+      ["What it beats", "Better fit than equity for short-horizon money with a known deadline."],
+      ["Main caution", "Looks safe, but post-tax real return may be weak over long periods."],
+    ],
   },
   {
     key: "ppf",
     label: "PPF",
+    role: "Long-term retirement-style compounding bucket",
     returnType: "Government-backed rate that resets periodically",
     risk: "Very low credit risk",
     liquidity: "Low; long lock-in with rule-based withdrawal access",
     ideal: "Retirement-style long-term compounding",
     watch: "Not suitable when money may be needed early",
     example: "Example: disciplined long-term retirement accumulation.",
+    horizon: "Designed for long holding periods",
+    taxNote: "Tax treatment is attractive, but liquidity is intentionally restricted.",
+    complexity: "Low to medium",
+    presenter: "PPF is a discipline tool first and a return tool second.",
+    scores: { safety: 5, liquidity: 1, growth: 2, complexity: 2 },
+    compare: [
+      ["Why people use it", "Builds a protected long-run bucket without daily market stress."],
+      ["What it beats", "More reliable than chasing hot products for retirement money."],
+      ["Main caution", "Great for discipline, but poor if the investor may need liquidity early."],
+    ],
   },
   {
     key: "vpf",
     label: "VPF",
+    role: "Salary-linked top-up for retirement accumulation",
     returnType: "Provident-fund style compounding through payroll saving",
     risk: "Low inside the provident-fund framework",
     liquidity: "Lower flexibility than open-market products",
     ideal: "Employees who want to top up retirement savings automatically",
     watch: "Salary-linked and less flexible than market products",
     example: "Example: automatic salary-based retirement saving for a salaried employee.",
+    horizon: "Best for salaried employees with a long retirement horizon",
+    taxNote: "Good for disciplined payroll saving, but flexibility is limited.",
+    complexity: "Medium",
+    presenter: "VPF works well for employees who want automation and do not need quick access.",
+    scores: { safety: 4, liquidity: 1, growth: 2, complexity: 2 },
+    compare: [
+      ["Why people use it", "Creates forced saving through payroll without day-to-day decision fatigue."],
+      ["What it beats", "More disciplined than trying to save the same money manually each month."],
+      ["Main caution", "The investor gives up flexibility in exchange for automation and structure."],
+    ],
   },
   {
     key: "sgb",
     label: "Gold Bonds",
+    role: "Strategic gold allocation and inflation hedge sleeve",
     returnType: "Gold price exposure plus coupon on issued bonds",
     risk: "Gold-price volatility even though the bond obligation is sovereign",
     liquidity: "Can vary depending on issue window and secondary market depth",
     ideal: "Strategic gold allocation without storing physical gold",
     watch: "Gold can remain volatile for long periods",
     example: "Example: adding a modest gold hedge to a diversified portfolio.",
+    horizon: "Works better as a strategic diversifier than a trading position",
+    taxNote: "Understand issue terms, coupon, and how exit timing affects realized outcome.",
+    complexity: "Medium",
+    presenter: "Gold bonds are usually a hedge sleeve, not the main engine of wealth creation.",
+    scores: { safety: 3, liquidity: 2, growth: 2, complexity: 3 },
+    compare: [
+      ["Why people use it", "Adds a diversifier that can behave differently from both cash and equity."],
+      ["What it beats", "Cleaner than storing physical gold when the aim is portfolio allocation."],
+      ["Main caution", "Gold can stay flat or volatile for long stretches, so position sizing matters."],
+    ],
   },
   {
     key: "mf",
     label: "Mutual Funds",
+    role: "Professionally managed pooled investment vehicle",
     returnType: "Market-linked based on underlying portfolio",
     risk: "Depends on whether the fund holds debt, equity, or hybrid assets",
     liquidity: "Usually high in open-ended schemes",
     ideal: "Diversified investing with professional management",
     watch: "Scheme mandate, cost, and benchmark fit matter",
     example: "Example: SIP into a diversified portfolio instead of buying one stock.",
+    horizon: "Depends entirely on the scheme mandate",
+    taxNote: "Tax treatment differs across equity, debt, and hybrid structures.",
+    complexity: "Medium",
+    presenter: "A mutual fund is only a wrapper; the real question is what sits inside it.",
+    scores: { safety: 3, liquidity: 4, growth: 3, complexity: 3 },
+    compare: [
+      ["Why people use it", "Gives diversification and fund-management access without picking every security."],
+      ["What it beats", "Often better than concentrated direct bets for beginners who need structure."],
+      ["Main caution", "The label 'mutual fund' is too broad; always check category, cost, and mandate."],
+    ],
   },
   {
     key: "equity",
     label: "Equity Funds",
+    role: "Long-horizon growth engine inside a diversified structure",
     returnType: "Market-linked with higher long-run growth potential",
     risk: "High short-term volatility and drawdown risk",
     liquidity: "Units are accessible, but value can swing sharply",
     ideal: "Goals with a 5-year or longer time horizon",
     watch: "Do not use this bucket for money needed soon",
     example: "Example: retirement, long-term wealth creation, or long-horizon family goals.",
+    horizon: "Usually 5 years or more",
+    taxNote: "Return path matters more than one-year snapshots; taxes should be read with holding period.",
+    complexity: "Medium",
+    presenter: "Equity funds solve diversification better than random stock picking, but not the pain of volatility.",
+    scores: { safety: 2, liquidity: 4, growth: 5, complexity: 3 },
+    compare: [
+      ["Why people use it", "Designed for compounding when the investor has time and emotional patience."],
+      ["What it beats", "Better diversification than one or two direct stock ideas."],
+      ["Main caution", "Short-term drawdowns are normal, so this must not hold near-term money."],
+    ],
   },
   {
     key: "ulip",
     label: "ULIP",
+    role: "Insurance plus market-linked investment wrapper",
     returnType: "Market-linked inside an insurance wrapper",
     risk: "Depends on selected fund mix and policy design",
     liquidity: "Lower because of lock-in and policy structure",
     ideal: "Only for users who understand both insurance and investment layers",
     watch: "Charges, lock-in, and complexity must be justified",
     example: "Example: a buyer combining insurance and market exposure in one product.",
+    horizon: "Long commitment product that should be entered deliberately",
+    taxNote: "Charges, insurance cost, and policy structure affect the investor more than headline illustrations.",
+    complexity: "High",
+    presenter: "ULIP should be explained as a bundled structure, not as a simple mutual fund substitute.",
+    scores: { safety: 2, liquidity: 2, growth: 3, complexity: 4 },
+    compare: [
+      ["Why people use it", "Some buyers prefer one wrapper for protection and investment."],
+      ["What it beats", "It can simplify paperwork, but not necessarily improve portfolio clarity."],
+      ["Main caution", "Bundling can hide costs and reduce flexibility if the buyer does not inspect the product well."],
+    ],
   },
   {
     key: "stocks",
     label: "Stocks",
+    role: "Direct ownership in businesses",
     returnType: "Pure market-linked ownership return",
     risk: "High company-specific and market risk",
     liquidity: "High for liquid listed shares",
     ideal: "Investors who can study businesses and tolerate drawdowns",
     watch: "Concentration risk and valuation mistakes are common",
     example: "Example: directly owning a listed company after research.",
+    horizon: "Useful for long-run investors with research discipline",
+    taxNote: "Taxes matter, but decision quality and concentration risk matter even more.",
+    complexity: "High",
+    presenter: "Stocks can create wealth, but only if the investor can handle selection risk and emotional pressure.",
+    scores: { safety: 1, liquidity: 4, growth: 5, complexity: 5 },
+    compare: [
+      ["Why people use it", "Direct ownership offers full upside when the business thesis is right."],
+      ["What it beats", "Can outperform broad funds, but only with better research and better behavior."],
+      ["Main caution", "Single-name risk is brutal when the investor mistakes confidence for analysis."],
+    ],
   },
   {
     key: "debentures",
     label: "Debentures",
+    role: "Lending to companies for coupon income and principal repayment",
     returnType: "Coupon or interest plus principal repayment terms",
     risk: "Credit risk, interest-rate risk, and liquidity variation",
     liquidity: "Depends on issuer quality and market depth",
     ideal: "Debt exposure when the investor can evaluate the issuer",
     watch: "Secured vs unsecured, rating, covenant quality, and issuer health",
     example: "Example: lending to a company rather than owning part of it.",
+    horizon: "Works only when issuer analysis and holding ability are both present",
+    taxNote: "Headline coupon should always be read alongside default risk and exit flexibility.",
+    complexity: "High",
+    presenter: "A debenture is not just a higher rate; it is a credit decision on the issuer.",
+    scores: { safety: 2, liquidity: 2, growth: 2, complexity: 4 },
+    compare: [
+      ["Why people use it", "Used for income-oriented lending exposure when the issuer can be understood."],
+      ["What it beats", "Can offer more yield than safer products, but only by taking more risk."],
+      ["Main caution", "Credit analysis matters more than coupon temptation."],
+    ],
   },
 ];
 
@@ -132,31 +231,111 @@ const glossaryData = [
 ];
 
 const quantData = {
-  returns: [
-    ["CAGR", "Smooths a multi-year path into one annualized growth number."],
-    ["XIRR", "Useful when SIPs and withdrawals happen on irregular dates."],
-    ["Rolling returns", "Shows consistency across many start dates instead of one lucky entry point."],
-  ],
-  risk: [
-    ["Volatility", "Measures how widely returns swing around the average."],
-    ["Max drawdown", "The largest fall from a previous peak, which investors feel very directly."],
-    ["Value at Risk", "A probabilistic estimate of possible downside over a chosen horizon."],
-  ],
-  portfolio: [
-    ["Correlation", "Explains how assets move relative to one another."],
-    ["Sharpe ratio", "Return earned per unit of volatility."],
-    ["Tracking error", "How much a passive product drifts from its benchmark."],
-  ],
-  debt: [
-    ["Yield to maturity", "Annualized return if a bond is held to maturity and pays as expected."],
-    ["Duration", "Bond-price sensitivity to interest-rate changes."],
-    ["Credit spread", "Extra yield demanded over a safer benchmark."],
-  ],
-  execution: [
-    ["Factor exposure", "Tilt toward value, momentum, quality, size, or low volatility."],
-    ["Rebalancing", "Restoring target weights after market moves."],
-    ["Slippage", "The gap between theoretical and actually executed price."],
-  ],
+  mpt: {
+    label: "MPT and frontier",
+    feature: {
+      title: "Efficient frontier",
+      summary:
+        "Modern Portfolio Theory asks which mix gives the highest expected return for a chosen level of risk, not which single product looks most exciting.",
+      formula: "min w'Σw  subject to  E[R_p] = target return and  Σw = 1",
+      caption:
+        "The covariance matrix matters because portfolio risk depends on how assets behave together, not just on stand-alone volatility.",
+      cue: "MPT is strongest when it turns diversification into a measurable design choice instead of a slogan.",
+      points: ["Expected return vector", "Covariance matrix", "Sharpe trade-off", "Rebalancing discipline"],
+    },
+    cards: [
+      ["Covariance matrix", "Shows which asset combinations dampen or amplify each other inside one portfolio."],
+      ["Correlation", "Low or changing correlation is the raw material behind diversification benefit."],
+      ["Sharpe ratio", "Compares excess return earned per unit of volatility taken."],
+      ["Capital market line", "Links efficient risky portfolios with the idea of a risk-free allocation mix."],
+    ],
+    takeaway:
+      "MPT is useful, but its optimizer is only as good as the assumptions used for return, volatility, and correlation.",
+  },
+  tail: {
+    label: "Tail risk",
+    feature: {
+      title: "Downside-risk toolkit",
+      summary:
+        "Average return can hide ugly path risk. Quant work often focuses on what happens in the bad left tail, not just in normal months.",
+      formula: "CVaR_a = E[Loss | Loss > VaR_a]",
+      caption:
+        "Expected shortfall asks: if losses cross the VaR threshold, how bad are they on average?",
+      cue: "Investors rarely quit because CAGR was low. They quit because drawdowns felt unbearable.",
+      points: ["VaR", "CVaR / Expected shortfall", "Max drawdown", "Stress scenarios"],
+    },
+    cards: [
+      ["Value at Risk", "A percentile estimate of possible loss over a chosen horizon and confidence level."],
+      ["Expected shortfall", "Looks beyond the VaR cutoff and measures the average severity of tail losses."],
+      ["Max drawdown", "Tracks the deepest peak-to-trough fall, which is behaviorally very important."],
+      ["Scenario stress tests", "Models what happens if rates spike, equities crash, or liquidity dries up together."],
+    ],
+    takeaway:
+      "Volatility alone is not enough; two portfolios with the same volatility can feel completely different in a crisis.",
+  },
+  factors: {
+    label: "Factors and CAPM",
+    feature: {
+      title: "CAPM and factor models",
+      summary:
+        "Quant portfolios often explain return through market beta plus systematic tilts such as value, size, momentum, quality, and low volatility.",
+      formula: "R_i - R_f = alpha + beta_mkt (R_m - R_f) + beta_factor F + error",
+      caption:
+        "Alpha is the part not explained by chosen risk factors. Beta measures sensitivity to those factors.",
+      cue: "A portfolio may look diversified by number of holdings but still be heavily concentrated in one hidden factor.",
+      points: ["Beta", "Alpha", "Factor exposure", "Tracking and information ratio"],
+    },
+    cards: [
+      ["Beta", "Measures how strongly a security or portfolio moves with the market benchmark."],
+      ["Alpha", "Return not explained by the benchmark or chosen factor model."],
+      ["Tracking error", "Volatility of active return versus a benchmark."],
+      ["Information ratio", "Active return earned per unit of tracking error taken."],
+    ],
+    takeaway:
+      "Factor language helps explain why two diversified portfolios can still behave very differently in the same market.",
+  },
+  fixedIncome: {
+    label: "Fixed income math",
+    feature: {
+      title: "Bond analytics",
+      summary:
+        "Debt investing is not just about coupon. Price sensitivity, yield changes, and credit spread behavior drive actual outcomes.",
+      formula: "ΔP/P ≈ -D_mod Δy + 0.5 C (Δy)^2",
+      caption:
+        "Modified duration estimates first-order sensitivity to yield change, while convexity improves the approximation.",
+      cue: "When rates move sharply, duration and convexity explain why two debt portfolios react differently.",
+      points: ["YTM", "Modified duration", "Convexity", "Credit spread"],
+    },
+    cards: [
+      ["Yield to maturity", "Annualized return if the bond is held to maturity and promised cash flows arrive."],
+      ["Modified duration", "Approximate percentage price change for a 1% change in yield."],
+      ["Convexity", "Measures how duration itself changes as yields move."],
+      ["Credit spread", "Extra yield demanded for bearing credit risk over a safer benchmark."],
+    ],
+    takeaway:
+      "A higher coupon does not automatically mean a better debt product; rate risk and credit risk decide the real trade-off.",
+  },
+  execution: {
+    label: "Execution and implementation",
+    feature: {
+      title: "Implementation drag",
+      summary:
+        "Good portfolio ideas can still underperform if costs, turnover, taxes, or poor execution eat the expected edge.",
+      formula: "Net alpha = gross alpha - cost - slippage - tax drag",
+      caption:
+        "In live investing, implementation quality often decides whether a strategy keeps its theoretical advantage.",
+      cue: "A strategy that looks brilliant in a spreadsheet can fail in the market if trading friction is ignored.",
+      points: ["Turnover", "Slippage", "Rebalancing bands", "Liquidity depth"],
+    },
+    cards: [
+      ["Turnover", "Measures how much of the portfolio is replaced over a period and often predicts cost drag."],
+      ["Slippage", "The gap between theoretical fill price and actual execution price."],
+      ["Rebalancing bands", "Allow a portfolio to drift within a range before trading, reducing unnecessary churn."],
+      ["Liquidity depth", "Shows whether the market can absorb order size without causing a damaging price move."],
+    ],
+    takeaway:
+      "Quant success is not only about better models; it is also about surviving real-world trading friction.",
+  },
 };
 
 const quizQuestions = [
@@ -189,27 +368,14 @@ const quizQuestions = [
 function renderProductExplorer() {
   const selector = document.getElementById("productSelector");
   const detail = document.getElementById("productDetail");
-  const tableBody = document.getElementById("comparisonTableBody");
+  const lens = document.getElementById("productLens");
 
-  if (!selector || !detail || !tableBody) return;
+  if (!selector || !detail || !lens) return;
 
   selector.innerHTML = productData
     .map(
       (item, index) =>
         `<button class="${index === 0 ? "active" : ""}" data-product="${item.key}">${item.label}</button>`
-    )
-    .join("");
-
-  tableBody.innerHTML = productData
-    .map(
-      (item) => `
-        <tr>
-          <td>${item.label}</td>
-          <td>${item.returnType}</td>
-          <td>${item.risk}</td>
-          <td>${item.liquidity}</td>
-        </tr>
-      `
     )
     .join("");
 
@@ -220,14 +386,56 @@ function renderProductExplorer() {
     detail.innerHTML = `
       <p class="kicker">Selected product</p>
       <h3>${product.label}</h3>
-      <p>${product.example}</p>
+      <p class="support-text top-zero">${product.example}</p>
       <div class="detail-grid">
+        <div class="detail-box"><strong>Role in portfolio</strong><p>${product.role}</p></div>
         <div class="detail-box"><strong>Return nature</strong><p>${product.returnType}</p></div>
-        <div class="detail-box"><strong>Risk</strong><p>${product.risk}</p></div>
+        <div class="detail-box"><strong>Risk profile</strong><p>${product.risk}</p></div>
         <div class="detail-box"><strong>Liquidity</strong><p>${product.liquidity}</p></div>
         <div class="detail-box"><strong>Best fit</strong><p>${product.ideal}</p></div>
-        <div class="detail-box"><strong>What to check</strong><p>${product.watch}</p></div>
-        <div class="detail-box"><strong>Presenter line</strong><p>Ask: what job is this product doing in the investor's plan?</p></div>
+        <div class="detail-box"><strong>Tax and checks</strong><p>${product.taxNote}</p></div>
+      </div>
+      <div class="presenter-note"><strong>Presenter line:</strong> ${product.presenter}</div>
+    `;
+
+    lens.innerHTML = `
+      <div class="table-head">
+        <h3>Comparison lens</h3>
+        <p>This view helps trainees compare products by job, horizon, and portfolio behavior instead of by return alone.</p>
+      </div>
+      <div class="product-lens-grid">
+        <div class="lens-box"><strong>Time horizon</strong><p>${product.horizon}</p></div>
+        <div class="lens-box"><strong>Complexity</strong><p>${product.complexity}</p></div>
+      </div>
+      <div class="rating-stack">
+        ${[
+          ["Safety", product.scores.safety],
+          ["Liquidity", product.scores.liquidity],
+          ["Growth", product.scores.growth],
+          ["Complexity", product.scores.complexity],
+        ]
+          .map(
+            ([label, score]) => `
+              <div class="rating-row">
+                <span>${label}</span>
+                <div class="rating-track"><div class="rating-fill" style="width:${(score / 5) * 100}%"></div></div>
+                <strong>${score}/5</strong>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+      <div class="compare-grid">
+        ${product.compare
+          .map(
+            ([title, text]) => `
+              <div class="compare-note">
+                <strong>${title}</strong>
+                <p>${text}</p>
+              </div>
+            `
+          )
+          .join("")}
       </div>
     `;
   };
@@ -261,26 +469,37 @@ function renderGlossary() {
 
 function renderQuant() {
   const tabs = document.getElementById("quantTabs");
+  const feature = document.getElementById("quantFeature");
   const grid = document.getElementById("quantGrid");
-  if (!tabs || !grid) return;
+  const takeaway = document.getElementById("quantTakeaway");
+  if (!tabs || !feature || !grid || !takeaway) return;
 
-  const labels = {
-    returns: "Return metrics",
-    risk: "Risk metrics",
-    portfolio: "Portfolio metrics",
-    debt: "Debt metrics",
-    execution: "Execution and factors",
-  };
-
-  tabs.innerHTML = Object.entries(labels)
+  tabs.innerHTML = Object.entries(quantData)
     .map(
-      ([key, label], index) =>
-        `<button class="${index === 0 ? "active" : ""}" data-quant="${key}">${label}</button>`
+      ([key, module], index) =>
+        `<button class="${index === 0 ? "active" : ""}" data-quant="${key}">${module.label}</button>`
     )
     .join("");
 
   const renderCards = (key) => {
-    grid.innerHTML = quantData[key]
+    const module = quantData[key];
+    if (!module) return;
+
+    feature.innerHTML = `
+      <p class="kicker">Featured concept</p>
+      <h3>${module.feature.title}</h3>
+      <p class="support-text top-zero">${module.feature.summary}</p>
+      <div class="formula-panel">
+        <div class="formula-line">${module.feature.formula}</div>
+        <div class="formula-caption">${module.feature.caption}</div>
+      </div>
+      <div class="feature-points">
+        ${module.feature.points.map((point) => `<span class="feature-point">${point}</span>`).join("")}
+      </div>
+      <div class="quote-banner compact-banner">${module.feature.cue}</div>
+    `;
+
+    grid.innerHTML = module.cards
       .map(
         ([title, text]) => `
           <div class="quant-card">
@@ -290,9 +509,11 @@ function renderQuant() {
         `
       )
       .join("");
+
+    takeaway.textContent = module.takeaway;
   };
 
-  renderCards("returns");
+  renderCards("mpt");
 
   tabs.addEventListener("click", (event) => {
     const button = event.target.closest("button");
@@ -303,28 +524,28 @@ function renderQuant() {
   });
 }
 
-function renderQuiz() {
-  const container = document.getElementById("quizGrid");
+function renderQuizBlock(containerId, questions, offset) {
+  const container = document.getElementById(containerId);
   if (!container) return;
 
-  container.innerHTML = quizQuestions
+  container.innerHTML = questions
     .map(
       (question, qIndex) => `
         <div class="quiz-card">
-          <p class="kicker">Question ${qIndex + 1}</p>
+          <p class="kicker">Question ${offset + qIndex + 1}</p>
           <h3>${question.question}</h3>
           <div class="quiz-options">
             ${question.options
               .map(
                 (option, oIndex) => `
-                  <button class="quiz-option" data-question="${qIndex}" data-option="${oIndex}">
+                  <button class="quiz-option" data-question="${offset + qIndex}" data-option="${oIndex}">
                     ${option}
                   </button>
                 `
               )
               .join("")}
           </div>
-          <div class="quiz-feedback" id="quiz-feedback-${qIndex}"></div>
+          <div class="quiz-feedback" id="quiz-feedback-${offset + qIndex}"></div>
         </div>
       `
     )
@@ -347,6 +568,11 @@ function renderQuiz() {
 
     if (feedback) feedback.textContent = question.explain;
   });
+}
+
+function renderQuiz() {
+  renderQuizBlock("quizGridA", quizQuestions.slice(0, 2), 0);
+  renderQuizBlock("quizGridB", quizQuestions.slice(2), 2);
 }
 
 function drawAxes(width, height, padding) {

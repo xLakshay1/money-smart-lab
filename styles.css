@@ -54,12 +54,12 @@ body {
 }
 
 .reveal .slides section {
-  padding: 40px 56px;
+  padding: 32px 48px;
   box-sizing: border-box;
 }
 
 .slide-shell {
-  width: min(1280px, 100%);
+  width: min(1300px, 100%);
   margin: 0 auto;
 }
 
@@ -74,17 +74,17 @@ body {
 }
 
 .reveal h1 {
-  font-size: 4.7rem;
+  font-size: 4.35rem;
   line-height: 0.93;
   max-width: 10ch;
   margin-bottom: 1rem;
 }
 
 .reveal h2 {
-  font-size: 3rem;
+  font-size: 2.78rem;
   line-height: 0.96;
-  max-width: 15ch;
-  margin-bottom: 1rem;
+  max-width: 16ch;
+  margin-bottom: 0.9rem;
 }
 
 .reveal h3 {
@@ -142,6 +142,7 @@ body {
 .grid-3,
 .grid-4,
 .goal-lanes,
+.goal-board,
 .warning-row,
 .metric-grid,
 .agenda-track,
@@ -152,7 +153,18 @@ body {
 .duel-grid,
 .quiz-options,
 .signal-strip,
-.cover-stage {
+.cover-stage,
+.foundation-grid,
+.foundation-steps,
+.product-layout,
+.quant-layout,
+.quant-mini-grid,
+.playbook-grid,
+.playbook-strip,
+.profile-note-grid,
+.product-lens-grid,
+.compare-grid,
+.rating-stack {
   display: grid;
   gap: 1rem;
 }
@@ -164,6 +176,7 @@ body {
 
 .grid-3,
 .goal-lanes,
+.goal-board,
 .warning-row,
 .duel-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -176,6 +189,12 @@ body {
 
 .align-start {
   align-items: start;
+}
+
+.dense-slide h2 {
+  font-size: 2.46rem;
+  max-width: 18ch;
+  margin-bottom: 0.75rem;
 }
 
 .cover-slide .slide-shell {
@@ -239,7 +258,7 @@ body {
   background: linear-gradient(180deg, var(--surface), var(--surface-strong));
   border: 1px solid var(--line);
   border-radius: 1.35rem;
-  padding: 1.08rem;
+  padding: 1rem;
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
 }
@@ -315,6 +334,21 @@ body {
   margin-bottom: 1rem;
 }
 
+.compact-strip {
+  margin-top: 0.9rem;
+}
+
+.foundation-slide .compact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.foundation-slide .compact-strip .signal-chip {
+  padding: 0.46rem 0.68rem;
+  font-size: 0.64em;
+}
+
 .signal-chip {
   background: rgba(80, 214, 255, 0.1);
   color: var(--ink);
@@ -323,6 +357,57 @@ body {
 .ladder-card {
   display: grid;
   gap: 0.85rem;
+}
+
+.foundation-grid {
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: start;
+}
+
+.foundation-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.foundation-steps {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.foundation-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  padding: 0.88rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.foundation-item-wide {
+  grid-column: 1 / -1;
+}
+
+.step-no {
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #0a1024;
+  background: linear-gradient(135deg, var(--gold), var(--lime));
+}
+
+.foundation-item p,
+.lane-list,
+.profile-note p,
+.compare-note p,
+.lens-box p,
+.detail-box p,
+.quant-card p {
+  margin: 0;
 }
 
 .ladder-step,
@@ -409,6 +494,23 @@ input[type="range"] {
   box-shadow: var(--shadow);
 }
 
+.goal-board {
+  gap: 0.9rem;
+}
+
+.lane-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1rem;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: 0.82em;
+}
+
+.compact-row {
+  gap: 0.8rem;
+  margin-top: 0.85rem;
+}
+
 .lane-footer {
   margin-top: 0.9rem;
   color: var(--gold);
@@ -461,10 +563,21 @@ input[type="range"] {
   margin: 1rem 0 1.1rem;
 }
 
+.compact-selector {
+  margin: 0.8rem 0 0.95rem;
+  gap: 0.55rem;
+}
+
 .selector-row button,
 .quiz-option {
   cursor: pointer;
   font-family: inherit;
+}
+
+.compact-selector button,
+.selector-row button {
+  padding: 0.5rem 0.78rem;
+  font-size: 0.68em;
 }
 
 .selector-row button.active {
@@ -474,6 +587,11 @@ input[type="range"] {
 
 .comparison-card {
   overflow: hidden;
+}
+
+.product-layout {
+  grid-template-columns: 1.03fr 0.97fr;
+  gap: 0.85rem;
 }
 
 .table-head {
@@ -497,20 +615,106 @@ td {
 .detail-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 0.7rem;
+  margin-top: 0.85rem;
 }
 
 .detail-box {
-  padding: 0.82rem;
+  padding: 0.76rem;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.detail-card h3 {
+  font-size: 1.68rem;
+}
+
 .detail-box strong {
   color: var(--gold);
   font-size: 0.76em;
+}
+
+.product-lens-grid,
+.compare-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.lens-box,
+.compare-note,
+.profile-note {
+  padding: 0.7rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lens-box strong,
+.compare-note strong,
+.profile-note strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--gold);
+  font-size: 0.78em;
+}
+
+.rating-stack {
+  gap: 0.6rem;
+  margin: 0.78rem 0;
+}
+
+.rating-row {
+  display: grid;
+  grid-template-columns: 6.8rem 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.rating-row span {
+  color: var(--muted);
+  font-size: 0.8em;
+}
+
+.rating-track {
+  height: 0.72rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.rating-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+}
+
+.insight-banner {
+  margin-top: 0.75rem;
+}
+
+.presenter-note {
+  margin-top: 0.55rem;
+  color: var(--dim);
+  font-size: 0.76em;
+  line-height: 1.35;
+}
+
+.presenter-note strong {
+  color: var(--gold);
+}
+
+.product-slide h2 {
+  font-size: 2.18rem;
+  max-width: 15ch;
+}
+
+.product-slide .table-head p,
+.product-slide .detail-box p,
+.product-slide .lens-box p,
+.product-slide .compare-note p {
+  font-size: 0.84em;
+  line-height: 1.4;
 }
 
 .family-grid {
@@ -616,25 +820,102 @@ td {
   border-radius: 999px;
 }
 
+.quant-layout {
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1rem;
+}
+
+.quant-feature {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.formula-panel {
+  padding: 0.95rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.formula-line {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  font-size: 1rem;
+  color: var(--gold);
+  line-height: 1.45;
+}
+
+.formula-caption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.82em;
+}
+
+.feature-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.feature-point {
+  padding: 0.45rem 0.68rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.72em;
+  color: var(--ink);
+}
+
+.quant-mini-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.quant-card {
+  padding: 0.95rem;
+}
+
 .quant-card h3 {
   color: var(--gold);
 }
 
+.compact-banner {
+  margin-top: 0.85rem;
+  padding: 0.8rem 0.95rem;
+}
+
+.playbook-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
 .profile-card {
-  min-height: 12rem;
+  min-height: auto;
+  display: grid;
+  gap: 0.8rem;
 }
 
 .profile-split span {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.profile-note-grid {
+  gap: 0.6rem;
+}
+
+.playbook-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.85rem;
+}
+
 .quiz-card h3 {
-  font-size: 1.22rem;
+  font-size: 1.12rem;
   margin-bottom: 0.55rem;
 }
 
 .quiz-options {
-  margin-top: 0.85rem;
+  margin-top: 0.75rem;
+  gap: 0.65rem;
 }
 
 .quiz-option {
@@ -643,7 +924,11 @@ td {
   background: rgba(255, 255, 255, 0.04);
   color: var(--ink);
   border-radius: 0.95rem;
-  padding: 0.84rem;
+  padding: 0.72rem;
+}
+
+.quiz-grid-compact {
+  gap: 0.9rem;
 }
 
 .quiz-option.correct {
@@ -684,11 +969,21 @@ td {
   .grid-3,
   .grid-4,
   .goal-lanes,
+  .goal-board,
   .warning-row,
   .agenda-track,
   .flow-row,
   .family-grid,
-  .duel-grid {
+  .duel-grid,
+  .foundation-grid,
+  .foundation-steps,
+  .product-layout,
+  .quant-layout,
+  .quant-mini-grid,
+  .playbook-grid,
+  .playbook-strip,
+  .product-lens-grid,
+  .compare-grid {
     grid-template-columns: 1fr;
   }
 
