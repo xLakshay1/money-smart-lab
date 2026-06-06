@@ -1,6 +1,6 @@
-# Money Smart Lab
+# Financial Management Presentation
 
-This is a GitHub Pages-friendly interactive presentation for new trainees.
+This is a GitHub Pages-friendly interactive presentation for new trainees on saving, investing, financial products, and portfolio thinking.
 
 ## Run locally
 

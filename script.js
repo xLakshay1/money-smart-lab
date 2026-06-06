@@ -1,9 +1,11 @@
 Reveal.initialize({
   hash: true,
   controls: true,
+  controlsTutorial: false,
   progress: true,
   slideNumber: "c/t",
   center: false,
+  navigationMode: "linear",
   transition: "slide",
   backgroundTransition: "fade",
   width: 1440,
@@ -25,119 +27,123 @@ const productData = [
   {
     key: "fd",
     label: "FD",
-    returnType: "Fixed / pre-declared",
-    risk: "Low credit risk, weak inflation protection",
-    liquidity: "Moderate; penalty may apply",
-    ideal: "Short-term goals and parking money",
+    returnType: "Fixed or pre-declared",
+    risk: "Low credit risk, but weaker inflation protection",
+    liquidity: "Moderate; premature withdrawal may reduce return",
+    ideal: "Short-term capital parking and goal protection",
     watch: "Tax on interest and reinvestment risk",
-    example: "Example: money needed in 12 to 24 months.",
+    example: "Example: money needed in 12 to 24 months for a fee payment or travel plan.",
   },
   {
     key: "ppf",
     label: "PPF",
-    returnType: "Government-backed, periodically reset rate",
+    returnType: "Government-backed rate that resets periodically",
     risk: "Very low credit risk",
-    liquidity: "Low; long lock-in with rule-based access",
-    ideal: "Long-term retirement-style compounding",
-    watch: "Not for near-term needs",
-    example: "Example: disciplined retirement bucket.",
+    liquidity: "Low; long lock-in with rule-based withdrawal access",
+    ideal: "Retirement-style long-term compounding",
+    watch: "Not suitable when money may be needed early",
+    example: "Example: disciplined long-term retirement accumulation.",
   },
   {
     key: "vpf",
     label: "VPF",
-    returnType: "Provident-fund style long-run compounding",
-    risk: "Low inside the PF framework",
+    returnType: "Provident-fund style compounding through payroll saving",
+    risk: "Low inside the provident-fund framework",
     liquidity: "Lower flexibility than open-market products",
-    ideal: "Employees topping up retirement savings",
-    watch: "Salary-linked and less flexible",
-    example: "Example: automatic payroll-based wealth building.",
+    ideal: "Employees who want to top up retirement savings automatically",
+    watch: "Salary-linked and less flexible than market products",
+    example: "Example: automatic salary-based retirement saving for a salaried employee.",
   },
   {
     key: "sgb",
     label: "Gold Bonds",
     returnType: "Gold price exposure plus coupon on issued bonds",
-    risk: "Gold-price volatility",
-    liquidity: "Issue and trading liquidity can vary",
-    ideal: "Gold allocation without storing physical gold",
-    watch: "Availability depends on official issuances",
-    example: "Example: modest portfolio diversification into gold.",
+    risk: "Gold-price volatility even though the bond obligation is sovereign",
+    liquidity: "Can vary depending on issue window and secondary market depth",
+    ideal: "Strategic gold allocation without storing physical gold",
+    watch: "Gold can remain volatile for long periods",
+    example: "Example: adding a modest gold hedge to a diversified portfolio.",
   },
   {
     key: "mf",
     label: "Mutual Funds",
-    returnType: "Market-linked",
-    risk: "Depends on the underlying assets",
-    liquidity: "Usually high in open-ended structures",
-    ideal: "Diversification with professional management",
-    watch: "Scheme category, cost, and mandate drift",
-    example: "Example: SIP into a diversified portfolio.",
+    returnType: "Market-linked based on underlying portfolio",
+    risk: "Depends on whether the fund holds debt, equity, or hybrid assets",
+    liquidity: "Usually high in open-ended schemes",
+    ideal: "Diversified investing with professional management",
+    watch: "Scheme mandate, cost, and benchmark fit matter",
+    example: "Example: SIP into a diversified portfolio instead of buying one stock.",
   },
   {
     key: "equity",
     label: "Equity Funds",
-    returnType: "Market-linked with growth potential",
-    risk: "High short-term volatility",
-    liquidity: "Usually good, but value swings widely",
-    ideal: "Long-term wealth creation",
-    watch: "Do not use for money needed soon",
-    example: "Example: 10-year retirement or wealth goal.",
+    returnType: "Market-linked with higher long-run growth potential",
+    risk: "High short-term volatility and drawdown risk",
+    liquidity: "Units are accessible, but value can swing sharply",
+    ideal: "Goals with a 5-year or longer time horizon",
+    watch: "Do not use this bucket for money needed soon",
+    example: "Example: retirement, long-term wealth creation, or long-horizon family goals.",
   },
   {
     key: "ulip",
     label: "ULIP",
-    returnType: "Market-linked inside insurance wrapper",
-    risk: "Depends on fund mix and policy structure",
-    liquidity: "Lower because of lock-in and design",
-    ideal: "Only if you understand both layers",
-    watch: "Charges, lock-in, and complexity",
-    example: "Example: investment plus insurance in one product.",
+    returnType: "Market-linked inside an insurance wrapper",
+    risk: "Depends on selected fund mix and policy design",
+    liquidity: "Lower because of lock-in and policy structure",
+    ideal: "Only for users who understand both insurance and investment layers",
+    watch: "Charges, lock-in, and complexity must be justified",
+    example: "Example: a buyer combining insurance and market exposure in one product.",
   },
   {
     key: "stocks",
     label: "Stocks",
-    returnType: "Pure market-linked equity return",
+    returnType: "Pure market-linked ownership return",
     risk: "High company-specific and market risk",
-    liquidity: "High for liquid listed names",
-    ideal: "Investors who can research businesses",
-    watch: "Concentration and behavioural errors",
-    example: "Example: owning part of a listed company.",
+    liquidity: "High for liquid listed shares",
+    ideal: "Investors who can study businesses and tolerate drawdowns",
+    watch: "Concentration risk and valuation mistakes are common",
+    example: "Example: directly owning a listed company after research.",
   },
   {
     key: "debentures",
     label: "Debentures",
-    returnType: "Coupon / interest plus principal terms",
-    risk: "Credit and interest-rate risk",
-    liquidity: "Varies widely by issuer",
-    ideal: "Debt exposure with issuer evaluation",
-    watch: "Secured vs unsecured, rating, covenants",
-    example: "Example: lending to a company instead of owning it.",
+    returnType: "Coupon or interest plus principal repayment terms",
+    risk: "Credit risk, interest-rate risk, and liquidity variation",
+    liquidity: "Depends on issuer quality and market depth",
+    ideal: "Debt exposure when the investor can evaluate the issuer",
+    watch: "Secured vs unsecured, rating, covenant quality, and issuer health",
+    example: "Example: lending to a company rather than owning part of it.",
   },
 ];
 
 const glossaryData = [
   ["Equity fund", "A mutual fund mainly investing in shares for long-term growth."],
-  ["Mutual fund", "Pooled money managed according to a stated investment strategy."],
-  ["ULIP", "Insurance plus investment wrapped inside one policy structure."],
+  ["Mutual fund", "A pooled investment vehicle managed according to a stated portfolio mandate."],
+  ["ULIP", "An insurance product where part of the money also goes into market-linked units."],
   ["Stocks", "Part ownership in a listed company."],
   ["Debentures", "Debt instruments through which companies borrow from investors."],
-  ["Interest on securities", "Coupon or contractual interest from bonds and similar instruments."],
-  ["Secured assets", "Assets pledged as collateral against borrowing."],
-  ["Demat account", "Electronic account that holds securities, not cash salary or savings."],
+  ["Interest on securities", "Coupon or contractual interest received from bonds and similar instruments."],
+  ["Secured assets", "Assets pledged as collateral so a lender has a claim if the borrower defaults."],
+  ["Demat account", "An electronic account that stores securities, not salary cash."],
+  ["Stock exchange", "A regulated electronic marketplace where listed securities are traded."],
+  ["SEBI", "The securities regulator that oversees market conduct and investor protection in India."],
+  ["Fund management", "The process of selecting, allocating, monitoring, and rebalancing investments."],
+  ["PPF and VPF", "Long-term provident-style saving products usually used for disciplined retirement building."],
 ];
 
 const quantData = {
   returns: [
     ["CAGR", "Smooths a multi-year path into one annualized growth number."],
     ["XIRR", "Useful when SIPs and withdrawals happen on irregular dates."],
-    ["Rolling returns", "Shows consistency across many starting points instead of one lucky date."],
+    ["Rolling returns", "Shows consistency across many start dates instead of one lucky entry point."],
   ],
   risk: [
     ["Volatility", "Measures how widely returns swing around the average."],
-    ["Max drawdown", "Largest drop from a prior peak, which investors feel very directly."],
-    ["Value at Risk", "A probabilistic estimate of downside over a chosen horizon."],
+    ["Max drawdown", "The largest fall from a previous peak, which investors feel very directly."],
+    ["Value at Risk", "A probabilistic estimate of possible downside over a chosen horizon."],
   ],
   portfolio: [
-    ["Correlation", "Tells you how assets move relative to each other."],
+    ["Correlation", "Explains how assets move relative to one another."],
     ["Sharpe ratio", "Return earned per unit of volatility."],
     ["Tracking error", "How much a passive product drifts from its benchmark."],
   ],
@@ -168,15 +174,15 @@ const quizQuestions = [
   },
   {
     question: "Diversification helps most when assets are:",
-    options: ["Perfectly correlated", "Unrelated or differently correlated", "All guaranteed", "All equally taxed"],
+    options: ["Perfectly correlated", "Differently correlated", "All guaranteed", "All equally taxed"],
     answer: 1,
-    explain: "Assets that do not move together the same way can improve the portfolio trade-off.",
+    explain: "Assets that do not move together in the same way can improve the portfolio trade-off.",
   },
   {
     question: "What is the key difference between a stock and a debenture?",
-    options: ["Both mean ownership", "Stock is ownership, debenture is lending", "Debenture is always safer than cash", "Only stocks earn returns"],
+    options: ["Both mean ownership", "Stock is ownership, debenture is lending", "Debenture is always safer than cash", "Only stocks can be listed"],
     answer: 1,
-    explain: "A stock is ownership; a debenture is a loan to the issuer.",
+    explain: "A stock is ownership in a company, while a debenture means lending money to it.",
   },
 ];
 
@@ -184,6 +190,8 @@ function renderProductExplorer() {
   const selector = document.getElementById("productSelector");
   const detail = document.getElementById("productDetail");
   const tableBody = document.getElementById("comparisonTableBody");
+
+  if (!selector || !detail || !tableBody) return;
 
   selector.innerHTML = productData
     .map(
@@ -208,17 +216,18 @@ function renderProductExplorer() {
   const renderDetail = (key) => {
     const product = productData.find((item) => item.key === key);
     if (!product) return;
+
     detail.innerHTML = `
       <p class="kicker">Selected product</p>
       <h3>${product.label}</h3>
       <p>${product.example}</p>
       <div class="detail-grid">
-        <div class="detail-box"><strong>Return</strong><p>${product.returnType}</p></div>
+        <div class="detail-box"><strong>Return nature</strong><p>${product.returnType}</p></div>
         <div class="detail-box"><strong>Risk</strong><p>${product.risk}</p></div>
         <div class="detail-box"><strong>Liquidity</strong><p>${product.liquidity}</p></div>
-        <div class="detail-box"><strong>Best use</strong><p>${product.ideal}</p></div>
-        <div class="detail-box"><strong>Watch out</strong><p>${product.watch}</p></div>
-        <div class="detail-box"><strong>Trainer line</strong><p>Ask what job this product is doing in the portfolio.</p></div>
+        <div class="detail-box"><strong>Best fit</strong><p>${product.ideal}</p></div>
+        <div class="detail-box"><strong>What to check</strong><p>${product.watch}</p></div>
+        <div class="detail-box"><strong>Presenter line</strong><p>Ask: what job is this product doing in the investor's plan?</p></div>
       </div>
     `;
   };
@@ -236,6 +245,8 @@ function renderProductExplorer() {
 
 function renderGlossary() {
   const container = document.getElementById("glossaryGrid");
+  if (!container) return;
+
   container.innerHTML = glossaryData
     .map(
       ([title, text]) => `
@@ -251,6 +262,8 @@ function renderGlossary() {
 function renderQuant() {
   const tabs = document.getElementById("quantTabs");
   const grid = document.getElementById("quantGrid");
+  if (!tabs || !grid) return;
+
   const labels = {
     returns: "Return metrics",
     risk: "Risk metrics",
@@ -292,6 +305,8 @@ function renderQuant() {
 
 function renderQuiz() {
   const container = document.getElementById("quizGrid");
+  if (!container) return;
+
   container.innerHTML = quizQuestions
     .map(
       (question, qIndex) => `
@@ -318,16 +333,19 @@ function renderQuiz() {
   container.addEventListener("click", (event) => {
     const option = event.target.closest(".quiz-option");
     if (!option) return;
+
     const qIndex = Number(option.dataset.question);
     const oIndex = Number(option.dataset.option);
     const question = quizQuestions[qIndex];
     const feedback = document.getElementById(`quiz-feedback-${qIndex}`);
+
     container.querySelectorAll(`.quiz-option[data-question="${qIndex}"]`).forEach((item) => {
       item.classList.remove("correct", "wrong");
       if (Number(item.dataset.option) === question.answer) item.classList.add("correct");
       if (Number(item.dataset.option) === oIndex && oIndex !== question.answer) item.classList.add("wrong");
     });
-    feedback.textContent = question.explain;
+
+    if (feedback) feedback.textContent = question.explain;
   });
 }
 
@@ -349,6 +367,10 @@ function initBudgetDemo() {
   const savingValue = document.getElementById("savingValue");
   const spendValue = document.getElementById("spendValue");
   const fundMonthsValue = document.getElementById("fundMonthsValue");
+
+  if (!incomeRange || !savingRateRange || !incomeValue || !savingValue || !spendValue || !fundMonthsValue) {
+    return;
+  }
 
   const render = () => {
     const income = Number(incomeRange.value);
@@ -378,6 +400,19 @@ function initSipDemo() {
   const gainValue = document.getElementById("sipGainValue");
   const chart = document.getElementById("sipChart");
 
+  if (
+    !amountRange ||
+    !returnRange ||
+    !yearsRange ||
+    !amountValue ||
+    !investedValue ||
+    !corpusValue ||
+    !gainValue ||
+    !chart
+  ) {
+    return;
+  }
+
   const render = () => {
     const monthlySip = Number(amountRange.value);
     const annualReturn = Number(returnRange.value) / 100;
@@ -394,6 +429,7 @@ function initSipDemo() {
 
     const invested = monthlySip * months;
     const gain = value - invested;
+
     amountValue.textContent = formatRupees(monthlySip);
     investedValue.textContent = formatCompactRupees(invested);
     corpusValue.textContent = formatCompactRupees(value);
@@ -412,10 +448,10 @@ function initSipDemo() {
 
     chart.innerHTML = `
       ${drawAxes(width, height, padding)}
-      <path d="${area}" fill="rgba(79,210,178,0.12)"></path>
-      <path d="${path}" fill="none" stroke="#78f5cf" stroke-width="4" stroke-linecap="round"></path>
-      ${points.map((point) => `<circle cx="${point.x}" cy="${point.y}" r="4.5" fill="#f0b45a"></circle>`).join("")}
-      <text x="${padding}" y="24" fill="#eff5f1" font-size="13" font-weight="700">Projected value path</text>
+      <path d="${area}" fill="rgba(52,225,192,0.14)"></path>
+      <path d="${path}" fill="none" stroke="#50d6ff" stroke-width="4" stroke-linecap="round"></path>
+      ${points.map((point) => `<circle cx="${point.x}" cy="${point.y}" r="4.5" fill="#ffcc63"></circle>`).join("")}
+      <text x="${padding}" y="24" fill="#f7f6fb" font-size="13" font-weight="700">Projected value path</text>
     `;
   };
 
@@ -424,10 +460,10 @@ function initSipDemo() {
 }
 
 const mptAssets = [
-  { name: "FD", return: 0.067, vol: 0.012, color: "#7ca6ff" },
-  { name: "Debt Fund", return: 0.077, vol: 0.04, color: "#60a8d7" },
-  { name: "Gold / SGB", return: 0.09, vol: 0.14, color: "#f0b45a" },
-  { name: "Equity Fund", return: 0.125, vol: 0.19, color: "#4fd2b2" },
+  { name: "FD", return: 0.067, vol: 0.012, color: "#6ca7ff" },
+  { name: "Debt Fund", return: 0.077, vol: 0.04, color: "#50d6ff" },
+  { name: "Gold / SGB", return: 0.09, vol: 0.14, color: "#ffcc63" },
+  { name: "Equity Fund", return: 0.125, vol: 0.19, color: "#34e1c0" },
 ];
 
 const corr = [
@@ -477,6 +513,8 @@ function initMptDemo() {
   const bars = document.getElementById("allocationBars");
   const chart = document.getElementById("mptChart");
 
+  if (!input || !returnValue || !volValue || !sharpeValue || !tagValue || !bars || !chart) return;
+
   const tagFromRisk = (risk) => {
     if (risk < 25) return "Capital-first";
     if (risk < 50) return "Balanced growth";
@@ -520,18 +558,19 @@ function initMptDemo() {
       y: height - padding - (portfolio.expectedReturn / maxReturn) * (height - padding * 2),
     });
     const focus = toPoint(selected);
+
     chart.innerHTML = `
       ${drawAxes(width, height, padding)}
       ${simulatedPortfolios
         .map((portfolio) => {
           const point = toPoint(portfolio);
-          return `<circle cx="${point.x}" cy="${point.y}" r="3" fill="rgba(124,166,255,0.18)"></circle>`;
+          return `<circle cx="${point.x}" cy="${point.y}" r="3" fill="rgba(108,167,255,0.16)"></circle>`;
         })
         .join("")}
-      <path d="${makePath(frontier.map(toPoint))}" fill="none" stroke="#f0b45a" stroke-width="4"></path>
-      <circle cx="${focus.x}" cy="${focus.y}" r="8" fill="#78f5cf" stroke="#08111b" stroke-width="4"></circle>
-      <text x="${padding}" y="24" fill="#eff5f1" font-size="13" font-weight="700">Efficient frontier</text>
-      <text x="${focus.x + 12}" y="${focus.y - 10}" fill="#eff5f1" font-size="12">Selected mix</text>
+      <path d="${makePath(frontier.map(toPoint))}" fill="none" stroke="#ffcc63" stroke-width="4"></path>
+      <circle cx="${focus.x}" cy="${focus.y}" r="8" fill="#34e1c0" stroke="#090d1d" stroke-width="4"></circle>
+      <text x="${padding}" y="24" fill="#f7f6fb" font-size="13" font-weight="700">Efficient frontier</text>
+      <text x="${focus.x + 12}" y="${focus.y - 10}" fill="#f7f6fb" font-size="12">Selected mix</text>
     `;
   };
 
