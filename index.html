@@ -164,7 +164,10 @@
                   <p>Use this live to show how faster saving reduces financial stress.</p>
                 </div>
                 <label class="control-block">
-                  <span>Monthly income</span>
+                  <span class="control-head">
+                    <span>Monthly income</span>
+                    <strong id="incomeRangeLabel" class="control-value">Rs 60,000</strong>
+                  </span>
                   <input
                     id="incomeRange"
                     type="range"
@@ -175,7 +178,10 @@
                   />
                 </label>
                 <label class="control-block">
-                  <span>Savings rate</span>
+                  <span class="control-head">
+                    <span>Savings rate</span>
+                    <strong id="savingRateRangeLabel" class="control-value">25%</strong>
+                  </span>
                   <input
                     id="savingRateRange"
                     type="range"
@@ -502,15 +508,24 @@
                   <p>Move the sliders live and show how time matters more than excitement.</p>
                 </div>
                 <label class="control-block">
-                  <span>Monthly SIP</span>
+                  <span class="control-head">
+                    <span>Monthly SIP</span>
+                    <strong id="sipAmountRangeLabel" class="control-value">Rs 8,000</strong>
+                  </span>
                   <input id="sipAmountRange" type="range" min="1000" max="50000" step="500" value="8000" />
                 </label>
                 <label class="control-block">
-                  <span>Expected annual return</span>
+                  <span class="control-head">
+                    <span>Expected annual return</span>
+                    <strong id="sipReturnRangeLabel" class="control-value">11.0%</strong>
+                  </span>
                   <input id="sipReturnRange" type="range" min="4" max="16" step="0.5" value="11" />
                 </label>
                 <label class="control-block">
-                  <span>Years invested</span>
+                  <span class="control-head">
+                    <span>Years invested</span>
+                    <strong id="sipYearsRangeLabel" class="control-value">15 years</strong>
+                  </span>
                   <input id="sipYearsRange" type="range" min="3" max="30" step="1" value="15" />
                 </label>
                 <div class="metric-grid">
@@ -541,7 +556,10 @@
                   MPT says a portfolio should not be judged only by individual asset returns. It should be judged by how the assets behave together.
                 </p>
                 <label class="control-block">
-                  <span>Risk appetite</span>
+                  <span class="control-head">
+                    <span>Risk appetite</span>
+                    <strong id="riskToleranceRangeLabel" class="control-value">45 / 100</strong>
+                  </span>
                   <input id="riskToleranceRange" type="range" min="1" max="100" step="1" value="45" />
                 </label>
                 <div class="metric-grid">

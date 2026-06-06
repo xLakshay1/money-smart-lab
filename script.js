@@ -589,12 +589,23 @@ function makePath(points) {
 function initBudgetDemo() {
   const incomeRange = document.getElementById("incomeRange");
   const savingRateRange = document.getElementById("savingRateRange");
+  const incomeRangeLabel = document.getElementById("incomeRangeLabel");
+  const savingRateRangeLabel = document.getElementById("savingRateRangeLabel");
   const incomeValue = document.getElementById("incomeValue");
   const savingValue = document.getElementById("savingValue");
   const spendValue = document.getElementById("spendValue");
   const fundMonthsValue = document.getElementById("fundMonthsValue");
 
-  if (!incomeRange || !savingRateRange || !incomeValue || !savingValue || !spendValue || !fundMonthsValue) {
+  if (
+    !incomeRange ||
+    !savingRateRange ||
+    !incomeRangeLabel ||
+    !savingRateRangeLabel ||
+    !incomeValue ||
+    !savingValue ||
+    !spendValue ||
+    !fundMonthsValue
+  ) {
     return;
   }
 
@@ -609,6 +620,8 @@ function initBudgetDemo() {
     savingValue.textContent = formatRupees(saved);
     spendValue.textContent = formatRupees(spent);
     fundMonthsValue.textContent = `${months} months`;
+    incomeRangeLabel.textContent = formatRupees(income);
+    savingRateRangeLabel.textContent = `${Number(savingRateRange.value)}%`;
   };
 
   incomeRange.addEventListener("input", render);
@@ -620,6 +633,9 @@ function initSipDemo() {
   const amountRange = document.getElementById("sipAmountRange");
   const returnRange = document.getElementById("sipReturnRange");
   const yearsRange = document.getElementById("sipYearsRange");
+  const amountRangeLabel = document.getElementById("sipAmountRangeLabel");
+  const returnRangeLabel = document.getElementById("sipReturnRangeLabel");
+  const yearsRangeLabel = document.getElementById("sipYearsRangeLabel");
   const amountValue = document.getElementById("sipAmountValue");
   const investedValue = document.getElementById("sipInvestedValue");
   const corpusValue = document.getElementById("sipCorpusValue");
@@ -630,6 +646,9 @@ function initSipDemo() {
     !amountRange ||
     !returnRange ||
     !yearsRange ||
+    !amountRangeLabel ||
+    !returnRangeLabel ||
+    !yearsRangeLabel ||
     !amountValue ||
     !investedValue ||
     !corpusValue ||
@@ -660,6 +679,9 @@ function initSipDemo() {
     investedValue.textContent = formatCompactRupees(invested);
     corpusValue.textContent = formatCompactRupees(value);
     gainValue.textContent = formatCompactRupees(gain);
+    amountRangeLabel.textContent = formatRupees(monthlySip);
+    returnRangeLabel.textContent = `${Number(returnRange.value).toFixed(1)}%`;
+    yearsRangeLabel.textContent = `${years} years`;
 
     const width = 640;
     const height = 360;
@@ -732,6 +754,7 @@ const frontier = simulatedPortfolios
 
 function initMptDemo() {
   const input = document.getElementById("riskToleranceRange");
+  const riskLabel = document.getElementById("riskToleranceRangeLabel");
   const returnValue = document.getElementById("mptReturnValue");
   const volValue = document.getElementById("mptVolValue");
   const sharpeValue = document.getElementById("mptSharpeValue");
@@ -739,7 +762,7 @@ function initMptDemo() {
   const bars = document.getElementById("allocationBars");
   const chart = document.getElementById("mptChart");
 
-  if (!input || !returnValue || !volValue || !sharpeValue || !tagValue || !bars || !chart) return;
+  if (!input || !riskLabel || !returnValue || !volValue || !sharpeValue || !tagValue || !bars || !chart) return;
 
   const tagFromRisk = (risk) => {
     if (risk < 25) return "Capital-first";
@@ -761,6 +784,7 @@ function initMptDemo() {
     volValue.textContent = `${(selected.volatility * 100).toFixed(1)}%`;
     sharpeValue.textContent = sharpe.toFixed(2);
     tagValue.textContent = tagFromRisk(Number(input.value));
+    riskLabel.textContent = `${Number(input.value)} / 100`;
 
     bars.innerHTML = selected.weights
       .map(
